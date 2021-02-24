@@ -1,12 +1,12 @@
 import React from "react";
-import UserLogin from "../../organisms/UserLogin/UserLogin";
+import UserRegister from "../../organisms/UserRegister/UserRegister";
 
-const Login = (props) => {
+const Register = (props) => {
   return (
     <div>
-      <UserLogin></UserLogin>
+      <UserRegister></UserRegister>
     </div>
   );
 };
 
-export default Login;
+export default Register;

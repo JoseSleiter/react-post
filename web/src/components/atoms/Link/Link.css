@@ -1,6 +1,6 @@
-a, a:link, a:hover, a:visited, a:active {
+a, a:link, a:visited, a:active {
     text-decoration: none;
-    background: none;
+    /* background: rgba(255, 255, 255, 0); */
     width: 100%;
     color: black;
     font-size: 20px;

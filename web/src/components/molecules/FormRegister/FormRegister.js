@@ -14,8 +14,8 @@ const FormRegister = (props) => {
 
   return (
     <div className="FormRegister">
-      <h4 class="FormRegister__Title">Already registered?</h4>
-      <div class="FormRegister__Content clearfix">
+      <h4 class="FormRegister__Title">You can register here!</h4>
+      <div class="FormRegister__Content box">
         <div class="Form__Field form-group">
           <Button
             id="SubmitLogin"
