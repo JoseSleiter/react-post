@@ -1,0 +1,5 @@
+a, a:link, a:hover, a:visited, a:active {
+    text-decoration: none;
+    background: none;
+    width: 100%;
+}
