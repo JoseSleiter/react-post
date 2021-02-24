@@ -1,0 +1,26 @@
+.MainMenu {
+    margin-top: 13px;
+    -webkit-box-flex: 0.25;
+    -ms-flex-positive: 0.25;
+    flex-grow: 0.25;
+    font-weight: 400;
+}
+.MainMenu__Row{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    padding-bottom: 5px;
+}
+.MainMenu__Item {
+    font-size: 20px;
+    color: #989898;
+    -webkit-transition: color .2s ease;
+    -o-transition: color .2s ease;
+    transition: color .2s ease;
+}
