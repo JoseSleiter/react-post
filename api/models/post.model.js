@@ -1,9 +1,9 @@
-import Model from "./_model";
+const Model = require("./_model");
 
 class Post extends Model {
-  contructor() {
-    this.table = "posts";
-    super(this.table);
+  constructor() {
+    super("posts");
+    this.fillable = ["id_user", "name", "description"];
   }
 }
 module.exports = new Post();
