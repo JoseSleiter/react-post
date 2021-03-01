@@ -5,7 +5,7 @@ import "./P.css";
 const P = (props) => {
   return (
     <>
-      <p className="textS">{props.text}</p>
+      <p className="textS">{unescape(props.text)}</p>
     </>
   );
 };

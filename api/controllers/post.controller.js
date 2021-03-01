@@ -27,8 +27,20 @@ class Post {
     }
   }
 
+  async userPosts(req, res, next) {
+    try {
+      const { id } = req.params;
+      const resp = await postService.innerWithUsers(id);
+      res.status(200).json({ data: resp });
+    } catch (e) {
+      console.log(e);
+      res.status(200).json({ data: e.stack });
+    }
+  }
+
   async store(req, res, next) {
     try {
+      console.log(req.body);
       const data = req.body;
       data.description = escape(data.description);
       const resp = await postService.store(data);

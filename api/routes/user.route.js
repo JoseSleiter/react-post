@@ -4,7 +4,7 @@ const userRouter = express.Router();
 
 userRouter
   .get("/", userCtl.index)
-  .get("/", userCtl.email)
+  .get("/email", userCtl.email)
   .delete("/", userCtl.delete);
 
 module.exports = userRouter;

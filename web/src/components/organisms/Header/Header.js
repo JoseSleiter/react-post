@@ -1,48 +1,37 @@
 import React from "react";
-import ButtonIcon from "../../atoms/ButtonIcon/ButtonIcon";
+import { useSelector, useDispatch } from "react-redux";
+
+import { fetchLogout } from "./../../../reducers/actions/userActions";
+
 import Img from "../../atoms/Img/Img";
-import CardSession from "../../molecules/CardSession/CardSession";
+import ButtonIcon from "../../atoms/ButtonIcon/ButtonIcon";
 import NavBar from "../../molecules/NavBar/NavBar";
+import CardSession from "../../molecules/CardSession/CardSession";
 import SearchField from "../../molecules/SearchField/SearchField";
 
 import logo from "./../../../assets/img/gs-logo.png";
 
 const Header = (props) => {
-  if (props.isMovil)
-    return (
-      <header className="Header">
-        <div className="Header__inner inner">
-          <nav className="MainMenu">
-            <div class="MainMenu__MobileHeader">
-              <div class="MainMenu__Logo">
-                <a herf="/">
-                  <Img src={logo} alt="" />
-                </a>
-              </div>
-              <NavBar></NavBar>
-              <button class="MainMenu__MenuToggle close">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-          </nav>
-          <div className="header_menu-toggle">
-            <ButtonIcon icon="fas fa-bars" />
-          </div>
-        </div>
-        <div className="SearchField__inner inner">
-          <SearchField></SearchField>
-        </div>
-      </header>
-    );
+  const userReducer = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
+
+  const hangleLogout = () => {
+    console.log("logout");
+    fetchLogout(dispatch);
+  };
+
   return (
     <header className="Header">
       <div className="Header__inner inner">
         <div className="Header__Logo">
           <Img src={logo} alt="" />
         </div>
-        <div class="Header__Spacer"></div>
+        <div className="Header__Spacer"></div>
         <NavBar>
-          <CardSession></CardSession>
+          <CardSession
+            isLogin={userReducer.loggedIn}
+            hangleLogout={hangleLogout}
+          ></CardSession>
         </NavBar>
       </div>
       <div className="SearchField__inner inner">
@@ -52,4 +41,5 @@ const Header = (props) => {
   );
 };
 
+// connect()(Header);
 export default Header;

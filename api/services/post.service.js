@@ -31,6 +31,15 @@ class PostService {
     }
   }
 
+  async innerWithUsers(id) {
+    try {
+      const resp = await post.postByUser(id);
+      return resp.rows;
+    } catch (err) {
+      throw new Error(err.stack);
+    }
+  }
+
   async store(data) {
     try {
       const resp = await post.insert(data);

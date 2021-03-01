@@ -12,7 +12,7 @@ const UserRegister = () => {
 
   return (
     <div className="UserRegister__Inner inner">
-      <h2 class="page-subheading text-center">WELCOME TO OUR REGISTER!</h2>
+      <h2 className="page-subheading text-center">WELCOME TO OUR REGISTER!</h2>
       <FormRegister></FormRegister>
     </div>
   );

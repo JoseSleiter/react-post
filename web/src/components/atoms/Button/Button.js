@@ -26,7 +26,7 @@ const Button = (props) => {
         onClick={handleClick}
         onMouseEnter={handleHover}
         onMouseLeave={handleLeaveHover}
-        className="btn"
+        className={`btn ${props.class} `}
       >
         <span className={`icon ${!props.icon ? "is-hidden" : ""}`}>
           {/* <img src={icon} alt="" /> */}
@@ -42,12 +42,14 @@ Button.defaultProps = {
   handleHover: (e) => {},
   handleLeaveHover: (e) => {},
   text: "Buton",
+  class: "",
 };
 
 Button.propTypes = {
   handleClick: PropTypes.func,
   icon: PropTypes.string,
   text: PropTypes.string,
+  class: PropTypes.string,
 };
 
 export default Button;
