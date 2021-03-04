@@ -5,7 +5,7 @@ VALUES ('sleiter', 'http://localhost:3000/assets/img/person_default.png' ,'sleit
 `;
 
 const insertPosts = `
-INSERT INTO posts (id_user, name, description)
+INSERT INTO posts (id_user, title, description)
 VALUES (1, 'post1', 'first message first messagefirst messagefirst messagefirst messagefirst messagefirst messagefirst messagefirst messagefirst messagefirst message'),
       (1, 'post2', 'second messagesecond messagesecond messagesecond messagesecond messagesecond messagesecond messagesecond messagesecond messagesecond messagesecond message'),
       (2, 'post3', 'first messageecond messagefirst messageecond messagefirst messageecond messagefirst messageecond messagefirst messageecond messagefirst messageecond message'),

@@ -30,12 +30,14 @@ class Model {
 
   async insert(data) {
     let columns = this.fillable.map((column) => `"${column}"`);
-    let values = this.fillable.map((column) => `'${data[column]}'`);
+    let column_values = this.fillable.map((column, key) => `$${key + 1}`);
+    let values = this.fillable.map((column) => data[column]);
     columns = columns.join();
-    values = values.join();
-    let query = `  INSERT INTO ${this.table}( ${columns} ) VALUES ( ${values} ) RETURNING id, ${columns}`;
+    column_values = column_values.join();
+    let query = ` INSERT INTO ${this.table}( ${columns} ) VALUES ( ${column_values} ) RETURNING id, ${columns}`;
+    console.log(values);
     if (!data) throw new Error(`your data is null ${data}`);
-    return this.pool.query(query);
+    return this.pool.query(query, values);
   }
 
   async delete(clause) {
