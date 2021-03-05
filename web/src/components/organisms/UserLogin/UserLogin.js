@@ -1,5 +1,6 @@
 import React from "react";
 import FormLogin from "../../molecules/FormLogin/FormLogin";
+import FormSocialLogin from "../../molecules/FormSocialLogin/FormSocialLogin";
 
 const UserLogin = (props) => {
   const loginUser = () => {
@@ -18,6 +19,8 @@ const UserLogin = (props) => {
         handleSubmit={loginUser}
         handleChange={handleChange}
       ></FormLogin>
+      <hr></hr>
+      <FormSocialLogin></FormSocialLogin>
     </div>
   );
 };

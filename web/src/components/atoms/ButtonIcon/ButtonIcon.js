@@ -32,7 +32,7 @@ ButtonIcon.defaultProps = {
   handleClick: (e) => {},
   handleHover: (e) => {},
   handleLeaveHover: (e) => {},
-  icon: "fa-search",
+  icon: "fa-cus-search",
 };
 
 ButtonIcon.propTypes = {

@@ -3,7 +3,7 @@ const post = require("./../models/post.model");
 class PostService {
   async index() {
     try {
-      const resp = await post.select("title, description");
+      const resp = await post.select("id, title, description");
       return resp.rows;
     } catch (err) {
       throw new Error(err.stack);

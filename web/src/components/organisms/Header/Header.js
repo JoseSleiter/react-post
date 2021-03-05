@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { fetchLogout } from "./../../../reducers/actions/userActions";
+import { fetchLogout } from "./../../../store/actions/userActions";
 
 import Img from "../../atoms/Img/Img";
 import ButtonIcon from "../../atoms/ButtonIcon/ButtonIcon";
