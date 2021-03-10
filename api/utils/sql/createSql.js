@@ -1,9 +1,9 @@
-const createMessageTable = `
+const createUsersTable = `
 DROP TABLE IF EXISTS users;
 CREATE TABLE IF NOT EXISTS users (
   id SERIAL PRIMARY KEY,
   name VARCHAR DEFAULT '',
-  email VARCHAR NOT NULL,
+  email VARCHAR NOT NULL unique,
   password VARCHAR NOT NULL,
   social_google_id VARCHAR DEFAULT NULL,
   social_facebook_id VARCHAR DEFAULT NULL
@@ -25,4 +25,4 @@ const createPostsTable = `
     );
     `;
 
-module.exports = [createMessageTable, createPostsTable];
+module.exports = [createUsersTable, createPostsTable];

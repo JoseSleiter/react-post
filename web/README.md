@@ -79,3 +79,9 @@ Atomic Desing
 Nodejs
 Express
 Postgrest
+
+#
+
+[HelpConnectPgs] <https://support.plesk.com/hc/en-us/articles/115003321434-How-to-enable-remote-access-to-PostgreSQL-server-on-a-Plesk-server->
+
+[HelpCreateEc2Pgs] <https://computingforgeeks.com/install-postgresql-12-on-ubuntu/>
