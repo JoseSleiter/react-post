@@ -3,7 +3,7 @@ const post = require("./../models/post.model");
 class PostService {
   async index() {
     try {
-      const resp = await post.select("name, description");
+      const resp = await post.select("title, description");
       return resp.rows;
     } catch (err) {
       throw new Error(err.stack);
@@ -12,7 +12,7 @@ class PostService {
 
   async showById(id) {
     try {
-      const resp = await post.select("name, description", `where id = ${id}`);
+      const resp = await post.select("title, description", `where id = ${id}`);
       return resp.rows;
     } catch (err) {
       throw new Error(err.stack);
@@ -22,9 +22,18 @@ class PostService {
   async showByUser(id) {
     try {
       const resp = await post.select(
-        "name, description",
+        "title, description",
         `where id_user = ${id}`
       );
+      return resp.rows;
+    } catch (err) {
+      throw new Error(err.stack);
+    }
+  }
+
+  async innerWithUsers(id) {
+    try {
+      const resp = await post.postByUser(id);
       return resp.rows;
     } catch (err) {
       throw new Error(err.stack);

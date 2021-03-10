@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import "./Spinner.css";
 
 const Spinner = (props) => {
@@ -14,8 +14,8 @@ const Spinner = (props) => {
 };
 
 Spinner.propTypes = {
-  text?: PropTypes.string,
-  show?: PropTypes.bool 
-}
+  text: PropTypes.string,
+  show: PropTypes.bool,
+};
 
-export default Spinner
+export default Spinner;

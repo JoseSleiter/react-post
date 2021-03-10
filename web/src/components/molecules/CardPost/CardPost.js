@@ -8,11 +8,7 @@ const CardPost = ({ post, children }) => {
   return (
     <div className="cardpost">
       <Link>
-        <Img
-          src={post.img.src}
-          title={post.img.title}
-          loading={post.img.loading}
-        />
+        <Img src={post.img} title="img" loading={false} />
         <P text={post.description} />
         <div className={`actionButtons ${!children ? "hidden" : "caca"}`}>
           {children}

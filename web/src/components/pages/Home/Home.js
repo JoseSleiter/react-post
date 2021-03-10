@@ -1,64 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ListPosts from "../../organisms/ListPosts/ListPosts";
 
 const Home = (props) => {
-  const posts = [
-    {
-      name: "tesd",
-      description: "teste",
-      img: {
-        src:
-          "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-1/c48.90.256.256a/p320x320/12002278_10205117020948909_3926427252827415249_n.jpg?_nc_cat=109&ccb=3&_nc_sid=7206a8&_nc_ohc=NKqh8xGz5RgAX-90JL9&_nc_ht=scontent-mia3-2.xx&tp=27&oh=ff77f73454049b0d326b985923817530&oe=605A9973",
-        title: "me",
-        loading: true,
-      },
-    },
-    {
-      name: "tesd",
-      description: "teste",
-      img: {
-        src:
-          "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-1/c48.90.256.256a/p320x320/12002278_10205117020948909_3926427252827415249_n.jpg?_nc_cat=109&ccb=3&_nc_sid=7206a8&_nc_ohc=NKqh8xGz5RgAX-90JL9&_nc_ht=scontent-mia3-2.xx&tp=27&oh=ff77f73454049b0d326b985923817530&oe=605A9973",
-        title: "me",
-        loading: true,
-      },
-    },
-    {
-      name: "tesd",
-      description: "teste",
-      img: {
-        src:
-          "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-1/c48.90.256.256a/p320x320/12002278_10205117020948909_3926427252827415249_n.jpg?_nc_cat=109&ccb=3&_nc_sid=7206a8&_nc_ohc=NKqh8xGz5RgAX-90JL9&_nc_ht=scontent-mia3-2.xx&tp=27&oh=ff77f73454049b0d326b985923817530&oe=605A9973",
-        title: "me",
-        loading: true,
-      },
-    },
-    {
-      name: "tesd",
-      description: "teste",
-      img: {
-        src:
-          "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-1/c48.90.256.256a/p320x320/12002278_10205117020948909_3926427252827415249_n.jpg?_nc_cat=109&ccb=3&_nc_sid=7206a8&_nc_ohc=NKqh8xGz5RgAX-90JL9&_nc_ht=scontent-mia3-2.xx&tp=27&oh=ff77f73454049b0d326b985923817530&oe=605A9973",
-        title: "me",
-        loading: true,
-      },
-    },
-    {
-      name: "tesd",
-      description: "loren",
-      img: {
-        src:
-          "https://scontent-mia3-2.xx.fbcdn.net/v/t1.0-1/c48.90.256.256a/p320x320/12002278_10205117020948909_3926427252827415249_n.jpg?_nc_cat=109&ccb=3&_nc_sid=7206a8&_nc_ohc=NKqh8xGz5RgAX-90JL9&_nc_ht=scontent-mia3-2.xx&tp=27&oh=ff77f73454049b0d326b985923817530&oe=605A9973",
-        title: "me",
-        loading: true,
-      },
-    },
-  ];
+  const API = "http://localhost:3001";
+  const [statePosts, setStatePosts] = useState({
+    posts: [],
+  });
+
+  const [statePage, setStatePage] = useState({
+    loading_text: "Loading...",
+    loading: true,
+    err: {},
+  });
+
+  useEffect(() => {
+    _getNews();
+  }, []);
+
+  const _getNews = async () => {
+    try {
+      const response = await fetch(`${API}/api/v1/post`);
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error("message___Get");
+      }
+      console.log(data);
+      setStatePosts({
+        posts: data.data,
+      });
+      setStatePage({
+        ...statePage,
+        loading: false,
+      });
+    } catch (err) {
+      // const { message, code } = JSON.parse(err.message);
+      setStatePage({
+        err: err.message,
+        loading: false,
+        loading_text: "",
+      });
+    }
+  };
 
   return (
     <div className="container">
       <div className="inner">
-        <ListPosts posts={posts}></ListPosts>
+        <ListPosts posts={statePosts.posts}></ListPosts>
       </div>
     </div>
   );

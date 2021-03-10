@@ -1,9 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import img_default from "./../../../assets/img/person_default.png";
 
 const Img = ({ src, title, loading }) => {
   return (
-    <img loading={`${loading ? "lazy" : ""}`} src={src} title={title}></img>
+    <img
+      loading={`${loading ? "lazy" : ""}`}
+      src={`${!src ? img_default : src}`}
+      alt={title}
+    ></img>
   );
 };
 

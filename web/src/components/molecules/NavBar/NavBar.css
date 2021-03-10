@@ -2,7 +2,7 @@
     margin-top: 13px;
     -webkit-box-flex: 0.25;
     -ms-flex-positive: 0.25;
-    flex-grow: 0.25;
+    flex-grow: 0.05;
     font-weight: 400;
 }
 .MainMenu__Row{

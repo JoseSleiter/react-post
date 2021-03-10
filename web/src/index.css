@@ -19,9 +19,7 @@ body {
   background-color: #f6f6f6;
 }
 
-.container{
 
-}
 .inner{
   margin-left: auto;
   margin-right: auto;
@@ -34,18 +32,29 @@ body {
   flex-direction: row;
   margin-bottom: 30px;
   border-radius: 5px;
-  min-height: 192px;
+  min-height: 120px;
+  max-height: 170px;
   -webkit-box-shadow: -3px 11px 19px 0 rgb(0 0 0 / 12%);
   box-shadow: -3px 11px 19px 0 rgb(0 0 0 / 12%);
   background-color: #fff;
 }
+.cardpost img {
+  width: 40%;
+  max-width: 170px;
+}
+
 .cardpost > a .textS{
   flex-grow: 2;
+  overflow: hidden;
 }
 .cardpost > a .actionButtons{
   flex-grow: 0.1;
 }
-
+.CardSession__dropdown-content button,
+.CardSession__dropdown-content button > *{
+  padding: 0;
+  font-size: 14px;
+}
 
 
 .Header {

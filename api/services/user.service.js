@@ -19,11 +19,13 @@ class UserService {
         ` id,${columns}`,
         `where email = '${email}' `
       );
+      if (!data.rowCount) return [];
+
       const verifyClient = await user.verifyPassword(
         password,
         data.rows[0].password
       );
-      if (!verifyClient) return {};
+      if (!verifyClient) return [];
       return data.rows;
     } catch (err) {
       throw new Error(err.stack);

@@ -1,10 +1,6 @@
 import { React, useState } from "react";
-import ButtonIcon from "../../atoms/ButtonIcon/ButtonIcon";
-// import Link from "../../atoms/Link/Link";
 import { Link } from "react-router-dom";
 import Button from "../../atoms/Button/Button";
-
-<Link to="/perfil">Me</Link>;
 
 const CardSession = (props) => {
   const [isToggle, setIsToggle] = useState(false);
@@ -13,6 +9,10 @@ const CardSession = (props) => {
 
   const handleToggle = (e) => {
     setIsToggle(!isToggle);
+  };
+
+  const hangleLogout = () => {
+    props.hangleLogout();
   };
 
   if (props.isLogin)
@@ -24,9 +24,13 @@ const CardSession = (props) => {
           handleLeaveHover={handleNull}
           text="My Account"
         ></Button>
-        <div className="CardSession__dropdown-content">
+        <div
+          className={`CardSession__dropdown-content  ${
+            !isToggle ? "" : "open"
+          }`}
+        >
           <Link to="/perfil">Me</Link>
-          <Button text="Logout"></Button>
+          <Button handleClick={hangleLogout} text="Logout"></Button>
         </div>
       </div>
     );

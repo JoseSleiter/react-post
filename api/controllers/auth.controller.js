@@ -7,24 +7,26 @@ class Auth {
     try {
       const { email, password } = req.body;
       if (!email) {
-        res.status(422).json({ data: "correo no registrado" });
+        res.status(403).json({ success: false, data: "correo no registrado" });
       }
 
       const client = await userService.userByEmail(email, password);
-      if (!client) {
-        res.status(404).json({ data: "invalidate password or email" });
+      if (!client.length) {
+        return res
+          .status(403)
+          .json({ success: false, data: "invalidate password or email" });
       }
 
       res.status(200).json({
         success: true,
         data: {
-          token: utilJWT.generateAccessToken(client),
-          client: client[0].id,
+          token: utilJWT.generateAccessToken(client[0]),
+          user: client[0],
         },
         message: "login Successful",
       });
     } catch (e) {
-      res.status(200).json({ data: e.stack });
+      res.status(200).json({ success: false, data: e.stack });
     }
   }
 
@@ -55,6 +57,31 @@ class Auth {
       res.status(200).json({ data: resp });
     } catch (e) {
       res.status(200).json({ data: e.stack });
+    }
+  }
+
+  async autoLogin(req, res, next) {
+    try {
+      const { data } = req.user;
+      const { email, password } = data.user;
+
+      // const client = await userService.userByEmail(email, password);
+      if (!email || !password) {
+        return res
+          .status(422)
+          .json({ success: false, data: "invalidate password or email" });
+      }
+
+      res.status(200).json({
+        success: true,
+        data: {
+          token: utilJWT.generateAccessToken(data.user),
+          user: data.user,
+        },
+        message: "autologin Successful",
+      });
+    } catch (e) {
+      res.status(200).json({ success: false, data: e.stack });
     }
   }
 }
