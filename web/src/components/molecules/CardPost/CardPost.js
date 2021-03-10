@@ -4,7 +4,7 @@ import Img from "../../atoms/Img/Img";
 import Link from "../../atoms/Link/Link";
 import P from "../../atoms/P/P";
 
-const CardPost = ({ post }) => {
+const CardPost = ({ post, children }) => {
   return (
     <div className="cardpost">
       <Link>
@@ -14,6 +14,9 @@ const CardPost = ({ post }) => {
           loading={post.img.loading}
         />
         <P text={post.description} />
+        <div className={`actionButtons ${!children ? "hidden" : "caca"}`}>
+          {children}
+        </div>
       </Link>
     </div>
   );

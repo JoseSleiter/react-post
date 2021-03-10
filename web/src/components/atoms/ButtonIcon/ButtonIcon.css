@@ -1,11 +1,15 @@
-.btn-content{
+.btn-icon-content{
     background: none;
     border: none;
-    width: 30px;
-    height: 30px;
 }
 
-.btn{
+.btn-icon, .btn-icon >*{
     outline: none;
     cursor: pointer;
+    background: #fff;
+    border: 0px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0);
+    color: black;
 }
+

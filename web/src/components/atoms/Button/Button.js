@@ -10,9 +10,24 @@ const Button = (props) => {
     props.handleClick();
   };
 
+  const handleHover = (e) => {
+    e.preventDefault();
+    props.handleHover();
+  };
+
+  const handleLeaveHover = (e) => {
+    e.preventDefault();
+    props.handleLeaveHover();
+  };
+
   return (
     <div className="btn-content">
-      <button onClick={handleClick} className="btn">
+      <button
+        onClick={handleClick}
+        onMouseEnter={handleHover}
+        onMouseLeave={handleLeaveHover}
+        className="btn"
+      >
         <span className={`icon ${!props.icon ? "is-hidden" : ""}`}>
           {/* <img src={icon} alt="" /> */}
         </span>
@@ -20,6 +35,13 @@ const Button = (props) => {
       </button>
     </div>
   );
+};
+
+Button.defaultProps = {
+  handleClick: (e) => {},
+  handleHover: (e) => {},
+  handleLeaveHover: (e) => {},
+  text: "Buton",
 };
 
 Button.propTypes = {

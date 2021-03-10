@@ -9,9 +9,17 @@ const ButtonIcon = (props) => {
     props.handleClick();
   };
 
+  const onMouseEnter = () => {
+    console.log("Event:MouseEnter");
+  };
+
   return (
-    <div className="btn-content">
-      <button onClick={handleClick} className="btn">
+    <div className="btn-icon-content">
+      <button
+        onMouseEnter={onMouseEnter}
+        onClick={handleClick}
+        className="btn-icon"
+      >
         <span
           className={`icon ${!props.icon ? "is-hidden" : props.icon}`}
         ></span>
@@ -20,8 +28,17 @@ const ButtonIcon = (props) => {
   );
 };
 
+ButtonIcon.defaultProps = {
+  handleClick: (e) => {},
+  handleHover: (e) => {},
+  handleLeaveHover: (e) => {},
+  icon: "fa-search",
+};
+
 ButtonIcon.propTypes = {
+  onMouseEnter: PropTypes.func,
   handleClick: PropTypes.func,
   icon: PropTypes.string,
 };
+
 export default ButtonIcon;

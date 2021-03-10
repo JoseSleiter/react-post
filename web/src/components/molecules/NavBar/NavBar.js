@@ -1,20 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./NavBar.css";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <>
       <nav className="MainMenu">
-        <ul>
-          <li>
+        <ul className="MainMenu__Row">
+          <li className="MainMenu__Item">
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/users">Me</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
+          {props.children}
         </ul>
       </nav>
     </>
