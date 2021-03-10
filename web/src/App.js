@@ -13,20 +13,23 @@ import Login from "./components/pages/Login/Login";
 import Register from "./components/pages/Register/Register";
 import Perfil from "./components/pages/Perfil/Perfil";
 import GuardedRoute from "./utils/guard/guardedRoute";
-import { autoLogin } from "./reducers/actions/userActions";
+import { autoLogin } from "./store/actions/userActions";
+
+import LzHeader from "./template/LazyLoad/Header/LzHeader";
 
 function App() {
   const userReducer = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(autoLogin());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(autoLogin());
+  // }, []);
 
   return (
     <div className="App">
       <Router>
-        <Header></Header>
+        {/* <Header></Header> */}
+        <LzHeader></LzHeader>
         <Switch>
           <GuardedRoute
             exact
@@ -49,7 +52,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Redirect to="/"></Redirect>
+          {/* <Redirect to="/"></Redirect> */}
         </Switch>
       </Router>
     </div>

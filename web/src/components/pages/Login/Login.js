@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import UserLogin from "../../organisms/UserLogin/UserLogin";
-import { fetchUser } from "./../../../reducers/actions/userActions";
+import { fetchUser } from "./../../../store/actions/userActions";
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -29,6 +29,7 @@ const Login = (props) => {
         loading: false,
       });
     } catch (err) {
+      console.log("hola", err);
       // const { message, code } = JSON.parse(err.message);
       setStatePage({
         err: err.message,

@@ -22,7 +22,7 @@ const FormNewPost = (props) => {
           <Input
             onChangeInput={handleChange}
             placeholder="Write your name post"
-            name="name"
+            name="title"
           ></Input>
         </div>
         <div className="Form__Field form-group">

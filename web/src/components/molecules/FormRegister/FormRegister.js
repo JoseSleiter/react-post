@@ -1,7 +1,5 @@
 import React from "react";
 import Button from "../../atoms/Button/Button";
-// import Input from "../../atoms/Input/Input";
-// import Link from "../../atoms/Link/Link";
 
 import "./FormRegister.css";
 

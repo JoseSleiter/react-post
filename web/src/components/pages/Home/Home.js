@@ -14,17 +14,17 @@ const Home = (props) => {
   });
 
   useEffect(() => {
-    _getNews();
+    console.log(1);
+    _getPosts();
   }, []);
 
-  const _getNews = async () => {
+  const _getPosts = async () => {
     try {
       const response = await fetch(`${API}/api/v1/post`);
       const data = await response.json();
       if (!response.ok) {
         throw new Error("message___Get");
       }
-      console.log(data);
       setStatePosts({
         posts: data.data,
       });
@@ -41,7 +41,9 @@ const Home = (props) => {
       });
     }
   };
+  console.log(statePosts.posts);
 
+  if (!statePosts.posts.length) return <p>caca</p>;
   return (
     <div className="container">
       <div className="inner">

@@ -39,7 +39,7 @@ body {
   background-color: #fff;
 }
 .cardpost img {
-  width: 40%;
+  /* width: 40%; */
   max-width: 170px;
 }
 
@@ -131,7 +131,7 @@ body {
   text-align: center;
 }
 
-.icon.fa-search{
+.icon.fa-cus-search{
   width: 20px;
   height: 20px;
   background: url('./assets/img/icono_buscador.svg');
@@ -148,4 +148,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   filter: opacity(0.5);
+}
+
+
+.Form__Field {
+  margin-bottom: 10px;
 }
